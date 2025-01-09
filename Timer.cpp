@@ -1,7 +1,7 @@
 #include "Timer.h"
 #include <Arduino.h>
 
-Timer::Timer(unsigned long interval, bool hasExpired) : interval(interval) {
+Timer::Timer(const unsigned long interval, const bool hasExpired) : interval(interval) {
     if (hasExpired) {
         setExpired();
     } else {
@@ -21,7 +21,7 @@ bool Timer::hasExpired() const {
     return trigger || millis() - timeLast >= interval;
 }
 
-void Timer::setInterval(unsigned long newInterval, bool shouldRestart) {
+void Timer::setInterval(const unsigned long newInterval, const bool shouldRestart) {
     interval = newInterval;
 
     if (shouldRestart) {
